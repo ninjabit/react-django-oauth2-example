@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import GoogleButtons from "./GoogleButtons";
+import GoogleButtons from "./components/GoogleButtons";
 
 class App extends Component {
   render() {
