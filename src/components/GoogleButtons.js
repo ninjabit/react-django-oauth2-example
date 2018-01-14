@@ -16,6 +16,17 @@ class GoogleButtons extends React.Component {
     render() {
         const responseGoogle = response => {
             console.log(response);
+            console.log(response.profileObj);
+
+            this.props.sendUserInfo({
+                token: response.tokenId,
+                email: response.profileObj.email,
+                familyName: response.profileObj.familyName,
+                givenName: response.profileObj.givenName,
+                googleId: response.profileObj.googleId,
+                imageUrl: response.profileObj.imageUrl,
+                name: response.profileObj.name
+            });
         };
 
         function signOut() {

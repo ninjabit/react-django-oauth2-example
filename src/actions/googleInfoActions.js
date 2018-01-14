@@ -1,4 +1,4 @@
-const url = "http://127.0.0.1:8000/";
+const url = "http://127.0.0.1:8000";
 
 const sendingUserInfo = () => ({ type: "SENDING_USER_INFO" });
 const receiveResponse = resp => ({ type: "RECEIVE_RESPONSE", resp });
