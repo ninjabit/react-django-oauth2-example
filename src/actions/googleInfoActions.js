@@ -10,6 +10,7 @@ function sendUserInfo(info) {
 		try {
 			let response = await fetch(`${url}/checkuser/`, {
 				method: "POST",
+				credentials: "include",
 				headers: {
 					"Content-Type": "application/json"
 				},
