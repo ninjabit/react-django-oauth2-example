@@ -8,9 +8,9 @@ class DogList extends Component {
 		console.log(this.props.dogs);
 		return (
 			<div>
-				{this.props.dogs.dogData.map(dog => {
+				{this.props.dogs.dogData.map((dog, index) => {
 					return (
-						<li key={dog.name}>
+						<li key={index}>
 							Name: {dog.name} Age:===={dog.age}=====Breed:{" "}
 							{dog.breed}
 						</li>
