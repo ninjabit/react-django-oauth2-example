@@ -10,10 +10,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Home from "./Home";
 import rootReducer from "./reducers";
-import Navbar from "./components/Navbar";
+import Navbar from "./containers/NavbarContainer";
+import DogList from "./containers/DogListContainer";
 
-import GoogleButtons from "./components/Gbtns";
-import GoogleLogoutButton from "./containers/GoogleLogoutButtonContainer";
 console.log(Cookies.get("sumCookie"));
 
 let store = createStore(
@@ -21,14 +20,18 @@ let store = createStore(
 	composeWithDevTools(applyMiddleware(thunk, logger))
 );
 
+if (Cookies.get("auth_token")) {
+	store.dispatch({ type: "AUTHENTICATE_ACTION" });
+}
+
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<div>
 				<Navbar />
 				<Switch>
-					<Route component={GoogleLogoutButton} />
 					<Route exact path="/" component={Home} />
+					<Route exact path="/secret" component={DogList} />
 				</Switch>
 			</div>
 		</BrowserRouter>

@@ -1,15 +1,33 @@
 import React, { Component } from "react";
-import GoogleButtons from "./Gbtns";
+import { NavLink } from "react-router-dom";
+
 import GoogleLoginButton from "../containers/GoogleLoginButtonContainer";
+import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer";
 
 class Navbar extends Component {
-	// navbarLinks() {
-	// 	if (this.props.googleInfo.isAuthenticated) {
-	// 		return [
-
-	// 		]
-	// 	}
-	// }
+	navbarLinks() {
+		if (this.props.auth.isAuthenticated) {
+			return [
+				<li className="nav-item" key="logout-btn">
+					<a className="nav-link" href="#">
+						<GoogleLogoutButton />
+					</a>
+				</li>,
+				<li className="nav-item" key="secret">
+					<NavLink to="/secret" exact className="nav-link">
+						Secret
+					</NavLink>
+				</li>
+			];
+		}
+		return [
+			<li className="nav-item" key="login-btn">
+				<a className="nav-link" href="#">
+					<GoogleLoginButton />
+				</a>
+			</li>
+		];
+	}
 
 	render() {
 		return (
@@ -25,31 +43,14 @@ class Navbar extends Component {
 				>
 					<span className="navbar-toggler-icon" />
 				</button>
-				<a className="navbar-brand" href="#">
-					Navbar
-				</a>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item active">
-							<a className="nav-link" href="#">
-								Home <span className="sr-only">(current)</span>
-							</a>
+							<NavLink className="nav-link" to="/">
+								Home
+							</NavLink>
 						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Features
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								<GoogleButtons />
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								hi
-							</a>
-						</li>
+						{this.navbarLinks()}
 					</ul>
 				</div>
 			</nav>

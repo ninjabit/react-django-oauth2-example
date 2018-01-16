@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 
-class GoogleLoginButton extends React.Component {
+class GoogleLoginButton extends Component {
 	render() {
 		const responseGoogle = response => {
 			console.log(response);
@@ -30,7 +30,7 @@ class GoogleLoginButton extends React.Component {
 				buttonText="Login"
 				onSuccess={responseGoogle}
 				onFailure={responseGoogle}
-				className="btn btn-link"
+				className="btn btn-secondary"
 			/>
 		);
 	}

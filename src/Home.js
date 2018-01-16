@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 
-import DogList from "./containers/DogListContainer";
-
-import GoogleButtons from "./components/Gbtns";
-
 class Home extends Component {
-  render() {
-    return (
-      <div>
-        <header>
-          <h1>Google Login and Logout Buttons</h1>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<h1>Welcome to the Home Page</h1>
+			</div>
+		);
+	}
 }
 
 export default Home;
