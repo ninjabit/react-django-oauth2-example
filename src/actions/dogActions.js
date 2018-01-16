@@ -14,6 +14,8 @@ function requestDogs(info) {
 					"Access-Control-Allow-Credentials": true
 				}
 			});
+			console.log("RESP", response);
+			console.log(response.headers.get("Cookie"));
 			if (!response.ok) {
 				throw new Error("DOG ERRORRRR -p-");
 			}

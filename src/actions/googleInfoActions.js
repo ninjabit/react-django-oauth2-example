@@ -29,6 +29,7 @@ function sendGoogleData(info) {
 				},
 				body: JSON.stringify(info)
 			});
+			console.log("RESPONSE...", response);
 			if (!response.ok) {
 				throw new Error("Incorrent credentials entered");
 			}

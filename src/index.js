@@ -12,6 +12,7 @@ import Home from "./Home";
 import rootReducer from "./reducers";
 import Navbar from "./containers/NavbarContainer";
 import DogList from "./containers/DogListContainer";
+import { PrivateRoute } from "./customRoutes/ProtectedRoutes";
 
 console.log(Cookies.get("sumCookie"));
 
@@ -24,6 +25,8 @@ if (Cookies.get("auth_token")) {
 	store.dispatch({ type: "AUTHENTICATE_ACTION" });
 }
 
+console.log("NEW", document.cookie);
+
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
@@ -31,7 +34,7 @@ ReactDOM.render(
 				<Navbar />
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/secret" component={DogList} />
+					<PrivateRoute exact path="/secret" component={DogList} />
 				</Switch>
 			</div>
 		</BrowserRouter>
