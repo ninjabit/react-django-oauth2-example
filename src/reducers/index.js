@@ -3,7 +3,7 @@ import googleInfoReducer from "./googleInfoReducer";
 import dogReducer from "./dogReducer";
 
 const rootReducer = combineReducers({
-	googleInfo: googleInfoReducer,
+	auth: googleInfoReducer,
 	dogs: dogReducer
 });
 

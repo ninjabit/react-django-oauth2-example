@@ -1,6 +1,16 @@
 import React, { Component } from "react";
+import GoogleButtons from "./Gbtns";
+import GoogleLoginButton from "../containers/GoogleLoginButtonContainer";
 
 class Navbar extends Component {
+	// navbarLinks() {
+	// 	if (this.props.googleInfo.isAuthenticated) {
+	// 		return [
+
+	// 		]
+	// 	}
+	// }
+
 	render() {
 		return (
 			<nav className="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -32,12 +42,12 @@ class Navbar extends Component {
 						</li>
 						<li className="nav-item">
 							<a className="nav-link" href="#">
-								Pricing
+								<GoogleButtons />
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link disabled" href="#">
-								Disabled
+							<a className="nav-link" href="#">
+								hi
 							</a>
 						</li>
 					</ul>

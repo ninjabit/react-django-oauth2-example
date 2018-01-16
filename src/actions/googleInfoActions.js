@@ -3,6 +3,8 @@ const url = "http://127.0.0.1:8000";
 
 const receiveError = err => ({ type: "RECEIVE_ERROR", err });
 
+const gapiReady = () => ({ type: "GAPI_READY" });
+
 function authenticateAction(history, dispatch) {
 	var in60Minutes = 1 / 24;
 	Cookies.set("auth_token", "auth_session_cookie_val", {
@@ -40,4 +42,4 @@ function sendGoogleData(info) {
 	};
 }
 
-export { sendGoogleData, authenticateAction, unAuthenticateAction };
+export { sendGoogleData, authenticateAction, unAuthenticateAction, gapiReady };

@@ -1,6 +1,7 @@
 const initialState = {
 	err: null,
-	isAuthenticated: false
+	isAuthenticated: false,
+	gapi_ready: false
 };
 
 function googleInfoReducer(state = initialState, action) {
@@ -22,6 +23,11 @@ function googleInfoReducer(state = initialState, action) {
 				...state,
 				err: action.err,
 				isAuthenticated: false
+			};
+		case "GAPI_READY":
+			return {
+				...state,
+				gapi_ready: true
 			};
 		default:
 			return state;

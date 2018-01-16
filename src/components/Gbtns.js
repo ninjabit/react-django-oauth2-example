@@ -15,36 +15,17 @@ class GoogleButtons extends React.Component {
     }
 
     render() {
-        let dispatch = this.props.dispatch;
-        let history = this.props.history;
         const responseGoogle = response => {
             console.log(response);
             console.log(response.profileObj);
-
-            this.props
-                .sendGoogleData({
-                    token: response.tokenId,
-                    email: response.profileObj.email,
-                    familyName: response.profileObj.familyName,
-                    givenName: response.profileObj.givenName,
-                    googleId: response.profileObj.googleId,
-                    imageUrl: response.profileObj.imageUrl,
-                    name: response.profileObj.name
-                })
-                .then((history, dispatch) =>
-                    this.props.authenticateAction(history, dispatch)
-                );
         };
 
         function signOut(dispatch) {
             var auth2 = gapi.auth2.getAuthInstance();
 
-            auth2
-                .signOut()
-                .then(function() {
-                    console.log("User signed out.");
-                })
-                .then(dispatch => this.props.unAuthenticateAction(dispatch));
+            auth2.signOut().then(function() {
+                console.log("User signed out.");
+            });
         }
 
         return (

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import GoogleButtons from "./containers/GoogleButtonsContainer";
 import DogList from "./containers/DogListContainer";
+
+import GoogleButtons from "./components/Gbtns";
 
 class Home extends Component {
   render() {
@@ -10,7 +11,6 @@ class Home extends Component {
         <header>
           <h1>Google Login and Logout Buttons</h1>
         </header>
-        <GoogleButtons />
       </div>
     );
   }
