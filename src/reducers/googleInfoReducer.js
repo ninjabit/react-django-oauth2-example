@@ -1,17 +1,28 @@
 const initialState = {
 	err: null,
-	resp: "",
-	isSendingInfo: false
+	isAuthenticated: false
 };
 
 function googleInfoReducer(state = initialState, action) {
 	switch (action.type) {
-		case "SENDING_USER_INFO":
-			return { ...state, isSendingInfo: true, err: null };
-		case "RECEIVE_RESPONSE":
-			return { ...state, isSendingInfo: false, resp: action.resp };
+		case "AUTHENTICATE_ACTION":
+			return {
+				...state,
+				err: null,
+				isAuthenticated: true
+			};
+		case "UNAUTHENTICATE_ACTION":
+			return {
+				...state,
+				isAuthenticated: false,
+				err: null
+			};
 		case "RECEIVE_ERROR":
-			return { ...state, isSendingInfo: false, err: action.err };
+			return {
+				...state,
+				err: action.err,
+				isAuthenticated: false
+			};
 		default:
 			return state;
 	}

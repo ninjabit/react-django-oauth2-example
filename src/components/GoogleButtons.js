@@ -1,6 +1,7 @@
 /* global gapi */
 import React from "react";
 
+import Cookies from "js-cookie";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 class GoogleButtons extends React.Component {
@@ -14,26 +15,36 @@ class GoogleButtons extends React.Component {
     }
 
     render() {
+        let dispatch = this.props.dispatch;
+        let history = this.props.history;
         const responseGoogle = response => {
             console.log(response);
             console.log(response.profileObj);
 
-            this.props.sendUserInfo({
-                token: response.tokenId,
-                email: response.profileObj.email,
-                familyName: response.profileObj.familyName,
-                givenName: response.profileObj.givenName,
-                googleId: response.profileObj.googleId,
-                imageUrl: response.profileObj.imageUrl,
-                name: response.profileObj.name
-            });
+            this.props
+                .sendGoogleData({
+                    token: response.tokenId,
+                    email: response.profileObj.email,
+                    familyName: response.profileObj.familyName,
+                    givenName: response.profileObj.givenName,
+                    googleId: response.profileObj.googleId,
+                    imageUrl: response.profileObj.imageUrl,
+                    name: response.profileObj.name
+                })
+                .then((history, dispatch) =>
+                    this.props.authenticateAction(history, dispatch)
+                );
         };
 
-        function signOut() {
+        function signOut(dispatch) {
             var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function() {
-                console.log("User signed out.");
-            });
+
+            auth2
+                .signOut()
+                .then(function() {
+                    console.log("User signed out.");
+                })
+                .then(dispatch => this.props.unAuthenticateAction(dispatch));
         }
 
         return (
