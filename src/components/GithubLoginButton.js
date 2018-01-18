@@ -3,7 +3,12 @@ import GitHubLogin from "react-github-login";
 
 class GithubLoginButton extends Component {
   render() {
-    const onSuccess = response => console.log(response);
+    const onSuccess = response => {
+      console.log(response);
+      this.props
+        .sendCode(response.code)
+        .then(resp => console.log("After Code: ", resp));
+    };
     const onFailure = response => console.error(response);
 
     // const responseGoogle = response => {

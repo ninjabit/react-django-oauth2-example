@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-import GoogleLoginButton from "../containers/GoogleLoginButtonContainer";
-import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer";
-
-import GithubLoginButton from "./GithubLoginButton";
-//import GitHubLogoutButton from './GitHubLogoutButton';
+import GoogleLoginButton from "./GoogleLoginButton.js";
+import GoogleLogoutButton from "./GoogleLogoutButton.js";
 
 class Navbar extends Component {
   navbarLinks() {
@@ -31,7 +28,7 @@ class Navbar extends Component {
       </li>,
       <li className="nav-item" key="git-login-btn">
         <a className="nav-link" href="#">
-          <GithubLoginButton />
+          Future
         </a>
       </li>
     ];
