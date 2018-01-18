@@ -27,7 +27,7 @@ class GoogleLogoutButton extends Component {
 		};
 		return (
 			<GoogleLogout
-				buttonText="Logout"
+				buttonText="Google Logout"
 				onLogoutSuccess={signOut}
 				className="btn btn-secondary"
 			/>

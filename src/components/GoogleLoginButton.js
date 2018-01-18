@@ -27,7 +27,7 @@ class GoogleLoginButton extends Component {
 		return (
 			<GoogleLogin
 				clientId="254472747355-6umtrkcedqn00tg7ec17l705ftttam0r.apps.googleusercontent.com"
-				buttonText="Login"
+				buttonText="Google Login"
 				onSuccess={responseGoogle}
 				onFailure={responseGoogle}
 				className="btn btn-secondary"
