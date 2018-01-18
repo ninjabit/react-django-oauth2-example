@@ -6,7 +6,7 @@ import GoogleLogoutButton from "./GoogleLogoutButton.js";
 
 class Navbar extends Component {
   navbarLinks() {
-    if (this.props.auth.isAuthenticated) {
+    if (this.props.goog_auth.isAuthenticated) {
       return [
         <li className="nav-item" key="logout-btn">
           <a className="nav-link" href="#">

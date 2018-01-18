@@ -1,16 +1,10 @@
-import {
-	sendGoogleData,
-	authenticateAction
-} from "../actions/googleInfoActions";
+import { convertGoogleToken } from "../actions/googleTokenActions";
 import GoogleLoginButton from "../components/GoogleLoginButton";
 
 import { connect } from "react-redux";
 
 const mapDispatchToProps = dispatch => ({
-	sendGoogleData: info => dispatch(sendGoogleData(info)),
-	authenticateAction: (history, dispatch) =>
-		dispatch(authenticateAction(history, dispatch)),
-	dispatch
+  convertGoogleToken: access_token => dispatch(convertGoogleTOken(access_token))
 });
 
 export default connect(null, mapDispatchToProps)(GoogleLoginButton);

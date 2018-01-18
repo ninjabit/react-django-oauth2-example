@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import googleInfoReducer from "./googleInfoReducer";
+import googleTokenReducer from "./googleTokenReducer";
 import dogReducer from "./dogReducer";
 
 const rootReducer = combineReducers({
-	auth: googleInfoReducer,
-	dogs: dogReducer
+  goog_auth: googleTokenReducer,
+  dogs: dogReducer
 });
 
 export default rootReducer;
