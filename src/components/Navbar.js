@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-import GoogleLoginButton from "./GoogleLoginButton.js";
-import GoogleLogoutButton from "./GoogleLogoutButton.js";
+import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
+//import GoogleLogoutButton from "./GoogleLogoutButton.js";
 
 class Navbar extends Component {
   navbarLinks() {
@@ -10,7 +10,7 @@ class Navbar extends Component {
       return [
         <li className="nav-item" key="logout-btn">
           <a className="nav-link" href="#">
-            <GoogleLogoutButton />
+            Goog Logout button
           </a>
         </li>,
         <li className="nav-item" key="secret">

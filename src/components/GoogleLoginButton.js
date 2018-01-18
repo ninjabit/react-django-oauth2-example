@@ -5,16 +5,7 @@ class GoogleLoginButton extends Component {
   render() {
     const responseGoogle = response => {
       console.log(response);
-      // this.props
-      //   .sendGoogleData({
-      //     token: response.tokenId,
-      //     email: response.profileObj.email,
-      //     familyName: response.profileObj.familyName,
-      //     givenName: response.profileObj.givenName,
-      //     googleId: response.profileObj.googleId,
-      //     imageUrl: response.profileObj.imageUrl,
-      //     name: response.profileObj.name
-      //   })
+      this.props.convertGoogleToken(response.accessToken);
     };
     return (
       <GoogleLogin
