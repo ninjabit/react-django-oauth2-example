@@ -31,7 +31,6 @@ class Navbar extends Component {
   }
 
   render() {
-    console.log("NAVBAR PROPS", this.props);
     return (
       <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
         <button
@@ -52,6 +51,16 @@ class Navbar extends Component {
                 Home
               </NavLink>
             </li>
+            {localStorage.getItem("goog_avatar_url") && (
+              <li className="nav-item">
+                <img
+                  src={localStorage.getItem("goog_avatar_url")}
+                  alt="profile-avatar"
+                  className="img-fluid rounded-circle"
+                  style={{ height: 32, width: 32 }}
+                />
+              </li>
+            )}
             {this.navbarLinks()}
           </ul>
         </div>
