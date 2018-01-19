@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import googleTokenReducer from "./googleTokenReducer";
+import googleTokenReducer from "./googleAuthReducer";
 import dogReducer from "./dogReducer";
 
 const rootReducer = combineReducers({

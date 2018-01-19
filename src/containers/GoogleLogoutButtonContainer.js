@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import GoogleLogoutButton from "../components/GoogleLogoutButton";
-import { googleLogoutAction } from "../actions/googleTokenActions";
+import { googleLogoutAction } from "../actions/googleAuthActions";
 
 const mapDispatchToProps = dispatch => ({
   googleLogoutAction: () => dispatch(googleLogoutAction())
