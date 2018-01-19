@@ -4,7 +4,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
 import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
 
-import GithubLoginButton from "./GithubLoginButton";
+import GithubLoginButton from "../containers/GithubLoginButtonContainer";
 
 import "../index.css";
 

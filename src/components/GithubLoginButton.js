@@ -5,6 +5,7 @@ class GithubLoginButton extends Component {
   render() {
     const onSuccess = response => {
       console.log(response);
+      this.props.sendGithubCode(response);
     };
     const onFailure = response => console.error(response);
     return (

@@ -18,17 +18,18 @@ function sendGithubCode(code) {
   return async function(dispatch) {
     dispatch(isSendingGithubCode());
     try {
-      let response = fetch(`${url}/github/`, {
+      let response = await fetch(`${url}/github/`, {
         method: "POST",
         headers: {
-          "Content-Type": "application-json"
+          "Content-Type": "application/json",
+          Accept: "application/json"
         },
         body: JSON.stringify(code)
       });
       if (!response.ok) {
         throw new Error("Invalid authorization with Github. Please try again.");
       }
-      let responseJson = response.json();
+      let responseJson = await response.json();
       return dispatch(sentGithubCodeSuccess(responseJson));
     } catch (err) {
       return dispatch(sentGithubCodeFailure(err));
