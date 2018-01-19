@@ -4,6 +4,8 @@ import { NavLink, withRouter } from "react-router-dom";
 import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
 import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
 
+import GithubLoginButton from "./GithubLoginButton";
+
 import "../index.css";
 
 class Navbar extends Component {
@@ -25,15 +27,12 @@ class Navbar extends Component {
         <GoogleLoginButton history={this.props.history} />
       </li>,
       <li className="tryme nav-item" key="git-login-btn">
-        <a className="nav-link" href="#">
-          Future
-        </a>
+        <GithubLoginButton />
       </li>
     ];
   }
 
   render() {
-    console.log("Navbar PROPS", this.props);
     return (
       <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
         <button

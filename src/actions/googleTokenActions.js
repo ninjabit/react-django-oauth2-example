@@ -47,8 +47,7 @@ function convertGoogleToken(access_token) {
         throw new Error("An Error has occured, please try again.");
       }
       let responseJson = await response.json();
-      dispatch(convertGoogTokenSuccess(responseJson));
-      return responseJson;
+      return dispatch(convertGoogTokenSuccess(responseJson));
     } catch (err) {
       return dispatch(convertGoogTokenFailure(err));
     }

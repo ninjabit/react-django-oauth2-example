@@ -15,7 +15,6 @@ class GoogleLoginButton extends Component {
     const responseGoogleFailure = response => {
       console.log(response);
     };
-    console.log("GoogleLoginButton PROPS", this.props);
     return (
       <GoogleLogin
         clientId="254472747355-6umtrkcedqn00tg7ec17l705ftttam0r.apps.googleusercontent.com"

@@ -5,9 +5,6 @@ class GithubLoginButton extends Component {
   render() {
     const onSuccess = response => {
       console.log(response);
-      this.props
-        .sendCode(response.code)
-        .then(resp => console.log("After Code: ", resp));
     };
     const onFailure = response => console.error(response);
 
@@ -38,8 +35,8 @@ class GithubLoginButton extends Component {
         onSuccess={onSuccess}
         onFailure={onFailure}
         redirectUri=""
-        buttonText="Github Login"
-        className="btn btn-danger"
+        buttonText="Login with Github"
+        className="fa fa-github btn btn-primary"
       />
     );
   }
