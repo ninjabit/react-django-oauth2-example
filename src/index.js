@@ -22,6 +22,10 @@ if (localStorage.getItem("goog_access_token_conv")) {
   store.dispatch({ type: "GOOG_AUTHENTICATE_ACTION" });
 }
 
+if (localStorage.getItem("github_access_token_conv")) {
+  store.dispatch({ type: "GITHUB_AUTHENTICATE_ACTION" });
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

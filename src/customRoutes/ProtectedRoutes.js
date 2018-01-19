@@ -3,7 +3,8 @@ import React from "react";
 
 const checkAuth = () => {
   const goog_token = localStorage.getItem("goog_access_token_conv");
-  if (!goog_token) {
+  const github_token = localStorage.getItem("github_access_token_conv");
+  if (!goog_token && !github_token) {
     return false;
   }
   return true;

@@ -7,14 +7,17 @@ const receiveErrorDog = err => ({ type: "RECEIVE_ERROR_DOG", err });
 function requestDogs() {
   return async function(dispatch) {
     dispatch(requestingDogData());
+
     try {
+      let token_conv =
+        (await localStorage.getItem("goog_access_token_conv")) ||
+        localStorage.getItem("github_access_token_conv");
+      console.log("--->", token_conv);
       let response = await fetch(`${url}/dogs/`, {
         method: "GET",
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${localStorage.getItem(
-            "goog_access_token_conv"
-          )}`
+          Authorization: `Bearer ${token_conv}`
         }
       });
       if (!response.ok) {

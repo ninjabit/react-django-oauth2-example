@@ -4,10 +4,34 @@ const isSendingGithubCode = () => ({
   type: "SENDING_GITHUB_CODE"
 });
 
-const sentGithubCodeSuccess = json => ({
-  type: "SENT_GITHUB_CODE_SUCCESS",
-  token_user_obj: json
-});
+// const sentGithubCodeSuccess = json => ({
+//   type: "SENT_GITHUB_CODE_SUCCESS",
+//   token_user_obj: json
+// });
+
+function sentGithubCodeSuccess(json) {
+  console.log(json);
+  localStorage.setItem("github_access_token_conv", json.token.access_token);
+  localStorage.setItem(
+    "github_name",
+    json.user.first_name + " " + json.user.last_name
+  );
+  localStorage.setItem("github_email", json.user.email);
+  return {
+    type: "SENT_GITHUB_CODE_SUCCESS",
+    token_user_obj: json
+  };
+}
+
+function githubLogoutAction() {
+  return function(dispatch) {
+    localStorage.removeItem("github_access_token_conv");
+    localStorage.removeItem("github_name");
+    localStorage.removeItem("github_email");
+    dispatch({ type: "GITHUB_LOGOUT" });
+    return Promise.resolve();
+  };
+}
 
 const sentGithubCodeFailure = err => ({
   type: "SENT_GITHUB_CODE_FAILURE",
@@ -37,4 +61,4 @@ function sendGithubCode(code) {
   };
 }
 
-export { sendGithubCode };
+export { sendGithubCode, githubLogoutAction };

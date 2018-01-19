@@ -5,31 +5,59 @@ import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
 import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
 
 import GithubLoginButton from "../containers/GithubLoginButtonContainer";
+import GithubLogoutButton from "./GithubLogoutButton";
 
 import "../index.css";
 
 class Navbar extends Component {
-  navbarLinks() {
+  googNavbarLinks() {
     if (this.props.goog_auth.isAuthenticated) {
       return [
-        <li className="nav-item" key="logout-btn">
+        <li className="nav-item" key="goog-logout-btn">
           <GoogleLogoutButton history={this.props.history} />
+        </li>
+      ];
+    }
+  }
+  loginNavbarButtons() {
+    if (
+      !this.props.goog_auth.isAuthenticated &&
+      !this.props.github_auth.isAuthenticated
+    ) {
+      return [
+        <li className="nav-item" key="goog-login-btn">
+          <GoogleLoginButton history={this.props.history} />
         </li>,
-        <li className="nav-item" key="secret">
-          <NavLink to="/secret" exact className="nav-link">
+        <li className="tryme nav-item" key="git-login-btn">
+          <GithubLoginButton />
+        </li>
+      ];
+    }
+  }
+
+  secretNavbarButton() {
+    if (
+      this.props.goog_auth.isAuthenticated |
+      this.props.github_auth.isAuthenticated
+    ) {
+      return [
+        <li className="nav-item" key="goog-secret">
+          <NavLink to="/secret/" exact className="nav-link">
             Secret
           </NavLink>
         </li>
       ];
     }
-    return [
-      <li className="nav-item" key="login-btn">
-        <GoogleLoginButton history={this.props.history} />
-      </li>,
-      <li className="tryme nav-item" key="git-login-btn">
-        <GithubLoginButton />
-      </li>
-    ];
+  }
+
+  githubNavbarLinks() {
+    if (this.props.github_auth.isAuthenticated) {
+      return [
+        <li className="nav-item mr-3" key="logout-btn">
+          <GithubLogoutButton history={this.props.history} />
+        </li>
+      ];
+    }
   }
 
   render() {
@@ -53,7 +81,10 @@ class Navbar extends Component {
                 Home
               </NavLink>
             </li>
-            {this.navbarLinks()}
+            {this.googNavbarLinks()}
+            {this.githubNavbarLinks()}
+            {this.loginNavbarButtons()}
+            {this.secretNavbarButton()}
           </ul>
           {localStorage.getItem("goog_avatar_url") && (
             <ul className="navbar-nav ml-auto">
