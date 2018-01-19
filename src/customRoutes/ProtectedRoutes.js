@@ -2,7 +2,7 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 
 const checkAuth = () => {
-  const goog_token = localStorage.getItem("goog_access_token");
+  const goog_token = localStorage.getItem("goog_access_token_conv");
   if (!goog_token) {
     return false;
   }

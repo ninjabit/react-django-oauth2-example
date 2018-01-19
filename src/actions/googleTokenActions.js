@@ -3,7 +3,7 @@ const url = "http://127.0.0.1:8000";
 
 function convertGoogTokenSuccess(json) {
   console.log("JSON", json);
-  localStorage.setItem("goog_access_token", json.access_token);
+  localStorage.setItem("goog_access_token_conv", json.access_token);
   return {
     type: "CONVERT_GOOG_TOKEN_SUCCESS",
     goog_token: json
@@ -11,8 +11,11 @@ function convertGoogTokenSuccess(json) {
 }
 
 function googleLogoutAction() {
-  localStorage.removeItem("goog_access_token");
-  return { type: "GOOGLE_LOGOUT" };
+  return function(dispatch) {
+    localStorage.removeItem("goog_access_token_conv");
+    dispatch({ type: "GOOGLE_LOGOUT" });
+    return Promise.resolve();
+  };
 }
 
 const convertGoogTokenFailure = err => ({

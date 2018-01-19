@@ -24,7 +24,8 @@ class GoogleLogoutButton extends Component {
           localStorage.removeItem("goog_name");
           localStorage.removeItem("goog_email");
         })
-        .then(() => this.props.googleLogoutAction());
+        .then(() => this.props.googleLogoutAction())
+        .then(() => this.props.history.push("/"));
     };
     return (
       <GoogleLogout

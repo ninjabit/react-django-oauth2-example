@@ -18,7 +18,7 @@ let store = createStore(
   composeWithDevTools(applyMiddleware(thunk, logger))
 );
 
-if (localStorage.getItem("goog_access_token")) {
+if (localStorage.getItem("goog_access_token_conv")) {
   store.dispatch({ type: "GOOG_AUTHENTICATE_ACTION" });
 }
 

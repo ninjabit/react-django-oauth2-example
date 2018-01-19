@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
 import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
@@ -11,7 +11,7 @@ class Navbar extends Component {
     if (this.props.goog_auth.isAuthenticated) {
       return [
         <li className="nav-item" key="logout-btn">
-          <GoogleLogoutButton />
+          <GoogleLogoutButton history={this.props.history} />
         </li>,
         <li className="nav-item" key="secret">
           <NavLink to="/secret" exact className="nav-link">
@@ -33,6 +33,7 @@ class Navbar extends Component {
   }
 
   render() {
+    console.log("Navbar PROPS", this.props);
     return (
       <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
         <button
@@ -79,4 +80,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

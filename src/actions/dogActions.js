@@ -12,7 +12,9 @@ function requestDogs() {
         method: "GET",
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${localStorage.getItem("goog_access_token")}`
+          Authorization: `Bearer ${localStorage.getItem(
+            "goog_access_token_conv"
+          )}`
         }
       });
       if (!response.ok) {

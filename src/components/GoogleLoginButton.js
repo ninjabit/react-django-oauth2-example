@@ -24,7 +24,8 @@ class GoogleLoginButton extends Component {
         onFailure={responseGoogleFailure}
         className="loginBtn loginBtn--google"
         prompt="select_account"
-        isSignedIn="true"
+        uxMode="popup"
+        redirectUri="http://localhost:3000/secret"
       />
     );
   }
