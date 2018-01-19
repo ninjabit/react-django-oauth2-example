@@ -45,13 +45,16 @@ class Navbar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ">
             <li className="nav-item active">
               <NavLink className="nav-link" to="/">
                 Home
               </NavLink>
             </li>
-            {localStorage.getItem("goog_avatar_url") && (
+            {this.navbarLinks()}
+          </ul>
+          {localStorage.getItem("goog_avatar_url") && (
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <img
                   src={localStorage.getItem("goog_avatar_url")}
@@ -60,9 +63,8 @@ class Navbar extends Component {
                   style={{ height: 32, width: 32 }}
                 />
               </li>
-            )}
-            {this.navbarLinks()}
-          </ul>
+            </ul>
+          )}
         </div>
       </nav>
     );
