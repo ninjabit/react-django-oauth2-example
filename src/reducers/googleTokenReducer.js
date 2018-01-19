@@ -19,6 +19,11 @@ function googleInfoReducer(state = initialState, action) {
         err: action.err,
         isAuthenticated: false
       };
+    case "GOOGLE_LOGOUT":
+      return {
+        ...state,
+        isAuthenticated: false
+      };
     default:
       return state;
   }

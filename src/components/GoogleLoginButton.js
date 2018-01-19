@@ -14,6 +14,7 @@ class GoogleLoginButton extends Component {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         className="btn btn-secondary"
+        prompt="select_account"
       />
     );
   }

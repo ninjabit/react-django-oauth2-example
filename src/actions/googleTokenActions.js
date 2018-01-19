@@ -1,10 +1,19 @@
 import URLSearchParams from "url-search-params";
 const url = "http://127.0.0.1:8000";
 
-const convertGoogTokenSuccess = json => ({
-  type: "CONVERT_GOOG_TOKEN_SUCCESS",
-  goog_token: json
-});
+function convertGoogTokenSuccess(json) {
+  console.log(json.access_token);
+  localStorage.setItem("goog_access_token", json.access_token);
+  return {
+    type: "CONVERT_GOOG_TOKEN_SUCCESS",
+    goog_token: json
+  };
+}
+
+function googleLogoutAction() {
+  localStorage.removeItem("goog_access_token");
+  return { type: "GOOGLE_LOGOUT" };
+}
 
 const convertGoogTokenFailure = err => ({
   type: "CONVERT_GOOG_TOKEN_FAILURE",
@@ -42,4 +51,4 @@ function convertGoogleToken(access_token) {
   };
 }
 
-export { convertGoogleToken };
+export { convertGoogleToken, googleLogoutAction };
