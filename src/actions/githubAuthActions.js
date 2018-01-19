@@ -6,7 +6,7 @@ const isSendingGithubCode = () => ({
 
 const sentGithubCodeSuccess = json => ({
   type: "SENT_GITHUB_CODE_SUCCESS",
-  github_token: json
+  token_user_obj: json
 });
 
 const sentGithubCodeFailure = err => ({

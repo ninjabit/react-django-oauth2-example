@@ -1,7 +1,10 @@
 const initialState = {
   isSendingCode: false,
   err: false,
-  github_token: {}
+  token_user_obj: {
+    github_token: {},
+    user: {}
+  }
 };
 
 function githubAuthReducer(state = initialState, action) {
@@ -13,10 +16,14 @@ function githubAuthReducer(state = initialState, action) {
         err: false
       };
     case "SENT_GITHUB_CODE_SUCCESS":
+      console.log("ACTION TOKEN OBJ", action.token_user_obj);
       return {
         ...state,
         isSendingCode: false,
-        github_token: action.github_token
+        token_user_obj: {
+          github_token: action.token_user_obj.token,
+          user: action.token_user_obj.user
+        }
       };
     case "SENT_GITHUB_CODE_FAILURE":
       return {
