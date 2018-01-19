@@ -5,7 +5,7 @@ import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
 import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
 
 import GithubLoginButton from "../containers/GithubLoginButtonContainer";
-import GithubLogoutButton from "./GithubLogoutButton";
+import GithubLogoutButton from "../containers/GithubLogoutButtonContainer";
 
 import "../index.css";
 
