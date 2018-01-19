@@ -8,6 +8,7 @@ class GoogleLoginButton extends Component {
       if (response.profileObj) {
         localStorage.setItem("goog_avatar_url", response.profileObj.imageUrl);
         localStorage.setItem("goog_name", response.profileObj.name);
+        localStorage.setItem("goog_email", response.profileObj.email);
       }
       this.props.convertGoogleToken(response.Zi.access_token);
     };

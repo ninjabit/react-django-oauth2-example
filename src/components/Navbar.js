@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
 import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
 
+import "../index.css";
+
 class Navbar extends Component {
   navbarLinks() {
     if (this.props.goog_auth.isAuthenticated) {
@@ -22,7 +24,7 @@ class Navbar extends Component {
       <li className="nav-item" key="login-btn">
         <GoogleLoginButton history={this.props.history} />
       </li>,
-      <li className="nav-item" key="git-login-btn">
+      <li className="tryme nav-item" key="git-login-btn">
         <a className="nav-link" href="#">
           Future
         </a>
@@ -55,12 +57,18 @@ class Navbar extends Component {
           </ul>
           {localStorage.getItem("goog_avatar_url") && (
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
+              <li className="avatar-li nav-item">
                 <img
                   src={localStorage.getItem("goog_avatar_url")}
                   alt="profile-avatar"
-                  className="img-fluid rounded-circle"
-                  style={{ height: 32, width: 32 }}
+                  className="avatar-a img-fluid rounded-circle"
+                  title={
+                    "Profile: " +
+                    localStorage.getItem("goog_name") +
+                    " (" +
+                    localStorage.getItem("goog_email") +
+                    ")"
+                  }
                 />
               </li>
             </ul>
