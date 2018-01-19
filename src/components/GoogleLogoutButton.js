@@ -20,6 +20,8 @@ class GoogleLogoutButton extends Component {
         .signOut()
         .then(() => {
           console.log("User signed out.");
+          localStorage.removeItem("goog_avatar_url");
+          localStorage.removeItem("goog_name");
         })
         .then(() => this.props.googleLogoutAction());
     };

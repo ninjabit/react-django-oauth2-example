@@ -9,9 +9,7 @@ class Navbar extends Component {
     if (this.props.goog_auth.isAuthenticated) {
       return [
         <li className="nav-item" key="logout-btn">
-          <a className="nav-link" href="#">
-            <GoogleLogoutButton />
-          </a>
+          <GoogleLogoutButton />
         </li>,
         <li className="nav-item" key="secret">
           <NavLink to="/secret" exact className="nav-link">
@@ -22,9 +20,7 @@ class Navbar extends Component {
     }
     return [
       <li className="nav-item" key="login-btn">
-        <a className="nav-link" href="#">
-          <GoogleLoginButton />
-        </a>
+        <GoogleLoginButton history={this.props.history} />
       </li>,
       <li className="nav-item" key="git-login-btn">
         <a className="nav-link" href="#">
@@ -35,6 +31,7 @@ class Navbar extends Component {
   }
 
   render() {
+    console.log("NAVBAR PROPS", this.props);
     return (
       <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
         <button

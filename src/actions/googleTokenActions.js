@@ -2,7 +2,7 @@ import URLSearchParams from "url-search-params";
 const url = "http://127.0.0.1:8000";
 
 function convertGoogTokenSuccess(json) {
-  console.log(json.access_token);
+  console.log("JSON", json);
   localStorage.setItem("goog_access_token", json.access_token);
   return {
     type: "CONVERT_GOOG_TOKEN_SUCCESS",
@@ -44,7 +44,8 @@ function convertGoogleToken(access_token) {
         throw new Error("An Error has occured, please try again.");
       }
       let responseJson = await response.json();
-      return dispatch(convertGoogTokenSuccess(responseJson));
+      dispatch(convertGoogTokenSuccess(responseJson));
+      return responseJson;
     } catch (err) {
       return dispatch(convertGoogTokenFailure(err));
     }
