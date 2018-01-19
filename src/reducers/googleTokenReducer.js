@@ -24,6 +24,11 @@ function googleInfoReducer(state = initialState, action) {
         ...state,
         isAuthenticated: false
       };
+    case "GOOG_AUTHENTICATE_ACTION":
+      return {
+        ...state,
+        isAuthenticated: true
+      };
     default:
       return state;
   }

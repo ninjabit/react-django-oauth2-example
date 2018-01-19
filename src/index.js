@@ -18,6 +18,10 @@ let store = createStore(
   composeWithDevTools(applyMiddleware(thunk, logger))
 );
 
+if (localStorage.getItem("goog_access_token")) {
+  store.dispatch({ type: "GOOG_AUTHENTICATE_ACTION" });
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

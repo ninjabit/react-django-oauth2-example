@@ -5,7 +5,7 @@ class GoogleLoginButton extends Component {
   render() {
     const responseGoogle = response => {
       console.log(response);
-      this.props.convertGoogleToken(response.accessToken);
+      this.props.convertGoogleToken(response.Zi.access_token);
     };
     return (
       <GoogleLogin

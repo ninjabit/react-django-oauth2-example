@@ -4,28 +4,27 @@ const requestingDogData = () => ({ type: "SENDING_DOG_DATA" });
 const receiveResponseDog = resp => ({ type: "RECEIVE_RESPONSE_DOG", resp });
 const receiveErrorDog = err => ({ type: "RECEIVE_ERROR_DOG", err });
 
-function requestDogs(info) {
-	return async function(dispatch) {
-		dispatch(requestingDogData());
-		try {
-			let response = await fetch(`${url}/dogs/`, {
-				credentials: "include",
-				headers: {
-					"Access-Control-Allow-Credentials": true
-				}
-			});
-			console.log("RESP", response);
-			console.log(response.headers.get("Cookie"));
-			if (!response.ok) {
-				throw new Error("DOG ERRORRRR -p-");
-			}
+function requestDogs() {
+  return async function(dispatch) {
+    dispatch(requestingDogData());
+    try {
+      let response = await fetch(`${url}/dogs/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("goog_access_token")}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error("DOG ERRORRRR -p-");
+      }
 
-			let responseJson = await response.json();
-			return dispatch(receiveResponseDog(responseJson));
-		} catch (err) {
-			dispatch(receiveErrorDog(err));
-		}
-	};
+      let responseJson = await response.json();
+      return dispatch(receiveResponseDog(responseJson));
+    } catch (err) {
+      dispatch(receiveErrorDog(err));
+    }
+  };
 }
 
 export { requestDogs };
