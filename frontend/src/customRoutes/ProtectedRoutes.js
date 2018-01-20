@@ -1,0 +1,40 @@
+import { Route, Redirect } from "react-router-dom";
+import React from "react";
+
+const checkAuth = () => {
+  const goog_token = localStorage.getItem("goog_access_token_conv");
+  const github_token = localStorage.getItem("github_access_token_conv");
+  if (!goog_token && !github_token) {
+    return false;
+  }
+  return true;
+};
+
+//If there is a google/github token in localStorage let them access /secret
+const PrivateRoute = ({ component: Component }, ...rest) => (
+  <Route
+    {...rest}
+    render={props => {
+      return checkAuth() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/" }} />
+      );
+    }}
+  />
+);
+
+// const AuthenticatedRoute = ({ component: Component }, ...rest) => (
+//   <Route
+//     {...rest}
+//     render={props => {
+//       return checkAuth() ? (
+//         <Redirect to={{ pathname: "/secret" }} />
+//       ) : (
+//         <Component {...props} />
+//       );
+//     }}
+//   />
+// );
+
+export { PrivateRoute };
