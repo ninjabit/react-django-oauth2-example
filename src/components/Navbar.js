@@ -50,7 +50,7 @@ function Navbar(props) {
   function userIsAuthenticategGithub() {
     if (props.github_auth.isAuthenticated) {
       return [
-        <li className="nav-item mr-3" key="logout-btn">
+        <li className="nav-item mr-3" key="git-logout-btn">
           <GithubLogoutButton history={props.history} />
         </li>
       ];
