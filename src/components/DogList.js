@@ -14,7 +14,12 @@ class DogList extends Component {
             </li>
           );
         })}
-        <button onClick={() => this.props.requestDogs()}>Load Dogs</button>
+        <button
+          onClick={() => this.props.requestDogs()}
+          className="btn btn-success"
+        >
+          Load Dogs
+        </button>
       </div>
     );
   }

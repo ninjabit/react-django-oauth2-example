@@ -4,13 +4,7 @@ const isSendingGithubCode = () => ({
   type: "SENDING_GITHUB_CODE"
 });
 
-// const sentGithubCodeSuccess = json => ({
-//   type: "SENT_GITHUB_CODE_SUCCESS",
-//   token_user_obj: json
-// });
-
 function sentGithubCodeSuccess(json) {
-  console.log(json);
   localStorage.setItem("github_access_token_conv", json.token.access_token);
   localStorage.setItem(
     "github_name",
