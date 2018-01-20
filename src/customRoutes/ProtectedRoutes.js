@@ -10,6 +10,7 @@ const checkAuth = () => {
   return true;
 };
 
+//If there is a google/github token in localStorage let them access /secret
 const PrivateRoute = ({ component: Component }, ...rest) => (
   <Route
     {...rest}
@@ -23,17 +24,17 @@ const PrivateRoute = ({ component: Component }, ...rest) => (
   />
 );
 
-const AuthenticatedRoute = ({ component: Component }, ...rest) => (
-  <Route
-    {...rest}
-    render={props => {
-      return checkAuth() ? (
-        <Redirect to={{ pathname: "/secret" }} />
-      ) : (
-        <Component {...props} />
-      );
-    }}
-  />
-);
+// const AuthenticatedRoute = ({ component: Component }, ...rest) => (
+//   <Route
+//     {...rest}
+//     render={props => {
+//       return checkAuth() ? (
+//         <Redirect to={{ pathname: "/secret" }} />
+//       ) : (
+//         <Component {...props} />
+//       );
+//     }}
+//   />
+// );
 
-export { PrivateRoute, AuthenticatedRoute };
+export { PrivateRoute };

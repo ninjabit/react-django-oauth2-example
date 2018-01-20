@@ -7,7 +7,7 @@ const Home = ({ github_auth, goog_auth }) => {
       {(github_auth.isSendingCode || goog_auth.isAuthenticating) && (
         <LoadingSpinner />
       )}
-      <h1>Hello</h1>
+      <h1>Home Page</h1>
     </div>
   );
 };
