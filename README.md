@@ -12,4 +12,4 @@ An example oauth integration with reactjs frontend and a django backend with goo
 - [x] integration of django-rest-framework-social-oauth2
 - [x] api endpoint /githubcode/ that sends a post request to github with query params in order to get an access token
 - [x] a model backend.dog which is only accessible for authenticated users
-- [x] testing and error handling
+- [ ] testing and error handling
