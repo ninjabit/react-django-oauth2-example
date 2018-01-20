@@ -6,7 +6,8 @@ class Home extends React.Component {
     console.log("HOME>>>>", this.props);
     return (
       <div>
-        {this.props.github_auth.isSendingCode && <LoadingSpinner />}
+        {(this.props.github_auth.isSendingCode ||
+          this.props.goog_auth.isAuthenticating) && <LoadingSpinner />}
         <h1>Hello</h1>
       </div>
     );

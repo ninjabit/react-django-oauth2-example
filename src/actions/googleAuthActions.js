@@ -1,6 +1,10 @@
 import URLSearchParams from "url-search-params";
 const url = "http://127.0.0.1:8000";
 
+const isAuthenticating = () => ({
+  type: "GOOG_IS_AUTHENTICATING"
+});
+
 function convertGoogTokenSuccess(json) {
   console.log("JSON", json);
   localStorage.setItem("goog_access_token_conv", json.access_token);
@@ -25,6 +29,7 @@ const convertGoogTokenFailure = err => ({
 
 function convertGoogleToken(access_token) {
   return async function(dispatch) {
+    dispatch(isAuthenticating());
     const searchParams = new URLSearchParams();
     searchParams.set("grant_type", "convert_token");
     searchParams.set("client_id", "FMg1tMRE2b7XzzdY3K7cvE6zNw6nwDSr5asPfyuN");
