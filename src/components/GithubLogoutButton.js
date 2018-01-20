@@ -1,10 +1,9 @@
 import React from "react";
 
-const githubLogout = () => {
-  this.props.githubLogoutAction().then(() => this.props.history.push("/"));
-};
-
-const GithubLogoutButton = () => {
+const GithubLogoutButton = props => {
+  const githubLogout = () => {
+    props.githubLogoutAction().then(() => props.history.push("/"));
+  };
   return (
     <button onClick={githubLogout} className="fa fa-github btn btn-primary">
       Logout
