@@ -37,8 +37,7 @@ function githubAuthReducer(state = initialState, action) {
       };
     case "GITHUB_LOGOUT":
       return {
-        ...state,
-        isAuthenticated: false
+        ...initialState
       };
     case "GITHUB_AUTHENTICATE_ACTION": {
       return {
