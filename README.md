@@ -1,5 +1,5 @@
 # react-django-oauth2-example
-###An example oauth integration with reactjs frontend and a django backend with google and github login
+An example oauth integration with reactjs frontend and a django backend with google and github login
 #### Frontend - Reactjs + Redux
 - [x] Implicit oauth2 flow with a google backend 
 - [x] Authorization ouath2 flow with a github backend 
