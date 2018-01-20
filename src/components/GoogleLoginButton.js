@@ -3,6 +3,7 @@ import { GoogleLogin } from "react-google-login";
 
 class GoogleLoginButton extends Component {
   render() {
+    console.log("http://localhost:3000/secret/");
     const responseGoogleSuccess = response => {
       console.log(response);
       if (response.profileObj) {
@@ -23,8 +24,7 @@ class GoogleLoginButton extends Component {
         onFailure={responseGoogleFailure}
         className="loginBtn loginBtn--google"
         prompt="select_account"
-        uxMode="popup"
-        redirectUri="http://localhost:3000/secret"
+        redirectUri="http://localhost:3000/secret/"
       />
     );
   }
