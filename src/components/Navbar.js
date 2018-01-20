@@ -13,7 +13,7 @@ function Navbar(props) {
   function userIsAuthenticatedGoogle() {
     if (props.goog_auth.isAuthenticated) {
       return [
-        <li className="nav-item" key="goog-logout-btn">
+        <li className="nav-item" key="goog-logout-btnx">
           <GoogleLogoutButton history={props.history} />
         </li>
       ];
