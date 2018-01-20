@@ -7,6 +7,7 @@ class DogList extends Component {
   render() {
     return (
       <div>
+        <h1>Only Authenticated users can see this page</h1>
         {this.props.dogs.dogData.map((dog, index) => {
           return (
             <li key={index}>
