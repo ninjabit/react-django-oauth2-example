@@ -1,5 +1,5 @@
-import { convertGoogleToken } from "../actions/googleAuthActions";
-import GoogleLoginButton from "../components/GoogleLoginButton";
+import { convertGoogleToken } from "../../actions/googleAuthActions";
+import GoogleLoginButton from "../../components/GoogleAuth/GoogleLoginButton";
 
 import { connect } from "react-redux";
 

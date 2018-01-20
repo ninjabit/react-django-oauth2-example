@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 
-import GoogleLoginButton from "../containers/GoogleLoginButtonContainer.js";
-import GoogleLogoutButton from "../containers/GoogleLogoutButtonContainer.js";
+import GoogleLoginButton from "../containers/GoogleAuth/GoogleLoginButtonContainer.js";
+import GoogleLogoutButton from "../containers/GoogleAuth/GoogleLogoutButtonContainer.js";
 
-import GithubLoginButton from "../containers/GithubLoginButtonContainer";
-import GithubLogoutButton from "../containers/GithubLogoutButtonContainer";
+import GithubLoginButton from "../containers/GithubAuth/GithubLoginButtonContainer";
+import GithubLogoutButton from "../containers/GithubAuth/GithubLogoutButtonContainer";
 
 import "../index.css";
 

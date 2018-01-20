@@ -8,10 +8,10 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Home from "./containers/HomeContainer";
-import rootReducer from "./reducers";
 import Navbar from "./containers/NavbarContainer";
-import DogList from "./containers/DogListContainer";
+import DogList from "./containers/Secret/DogListContainer";
 import { PrivateRoute } from "./customRoutes/ProtectedRoutes";
+import rootReducer from "./reducers";
 
 let store = createStore(
   rootReducer,

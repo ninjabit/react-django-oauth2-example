@@ -1,5 +1,5 @@
-import { sendGithubCode } from "../actions/githubAuthActions";
-import GithubLoginButton from "../components/GithubLoginButton";
+import { sendGithubCode } from "../../actions/githubAuthActions";
+import GithubLoginButton from "../../components/GithubAuth/GithubLoginButton";
 
 import { connect } from "react-redux";
 
