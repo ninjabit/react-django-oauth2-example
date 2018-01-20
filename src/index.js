@@ -7,11 +7,13 @@ import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Home from "./Home";
+import Home from "./HomeContainer";
 import rootReducer from "./reducers";
 import Navbar from "./containers/NavbarContainer";
 import DogList from "./containers/DogListContainer";
 import { PrivateRoute } from "./customRoutes/ProtectedRoutes";
+
+//import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
 
 let store = createStore(
   rootReducer,
@@ -27,6 +29,7 @@ if (localStorage.getItem("github_access_token_conv")) {
 }
 
 ReactDOM.render(
+  //<MuiThemeProvider>
   <Provider store={store}>
     <BrowserRouter>
       <div>
@@ -38,5 +41,6 @@ ReactDOM.render(
       </div>
     </BrowserRouter>
   </Provider>,
+  //</MuiThemeProvider>,
   document.getElementById("root")
 );

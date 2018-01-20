@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "gapi-client": "0.0.3",
+    "material-ui": "^1.0.0-beta.29",
+    "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-github-login": "^1.0.3",
