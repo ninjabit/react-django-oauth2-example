@@ -5,7 +5,6 @@ class DogList extends Component {
     this.props.requestDogs();
   }
   render() {
-    console.log(this.props.dogs);
     return (
       <div>
         {this.props.dogs.dogData.map((dog, index) => {

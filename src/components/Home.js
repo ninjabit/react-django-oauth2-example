@@ -1,5 +1,5 @@
 import React from "react";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../utils_materialui/LoadingSpinner";
 
 const Home = ({ github_auth, goog_auth }) => {
   return (
