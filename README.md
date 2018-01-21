@@ -12,7 +12,7 @@ An example oauth integration with reactjs frontend and a django backend with goo
 7. in your .env file place the google and github KEY and SECRET from the google and github applications registered on https://console.developers.google.com/ and https://github.com/settings/developers SOCIAL_AUTH_GOOGLE_OAUTH2_KEY="your_google_oauth2_key" SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='your_google_oauth2_secret' and  SOCIAL_AUTH_GITHUB_KEY='your_guthub_key' SOCIAL_AUTH_GITHUB_SECRET="your_github_secret"
 8. open your django api at the endpoint /dogs/ and create some model instances for this permissons.IsAuthenticated route
 #### Frontend folder
-1.cd frontend -> npm install
+1. cd frontend -> npm install
 2. open the src/actions/googleAuthActions.js module and paste your django oauth toolkit id and secret into the django_client_id and django_client_secret variables
 3. if you want you can switch your Google and Github login button clientIds
 4. npm start and you should be able to log in with google and github
