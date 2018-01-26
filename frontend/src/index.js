@@ -12,10 +12,11 @@ import Navbar from "./containers/NavbarContainer";
 import DogList from "./containers/Secret/DogListContainer";
 import { PrivateRoute } from "./customRoutes/ProtectedRoutes";
 import rootReducer from "./reducers";
+import auth_tokens_mw from "./customMiddleware/auth_tokens_mw";
 
 let store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk, logger))
+  composeWithDevTools(applyMiddleware(auth_tokens_mw, thunk, logger))
 );
 
 if (localStorage.getItem("goog_access_token_conv")) {
