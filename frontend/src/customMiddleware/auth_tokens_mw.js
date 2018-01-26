@@ -11,9 +11,8 @@ function auth_tokens_mw({ dispatch, getState }) {
     // only run for async actions
     if (typeof action === "function") {
       if (
-        localStorage.getItem(
-          "goog_access_token_conv" && localStorage.length > 0
-        )
+        localStorage.getItem("goog_access_token_conv") &&
+        localStorage.length > 0
       ) {
         const tokenExpirationTime = localStorage.getItem(
           "goog_access_token_expires_in"
@@ -21,7 +20,7 @@ function auth_tokens_mw({ dispatch, getState }) {
         // get the current unix epoch time in seconds
         const currentTime = Math.round(new Date().getTime() / 1000);
         const timeLeft = tokenExpirationTime - currentTime;
-        console.log("=======>", timeLeft);
+        console.log("token time left =======>", timeLeft);
         // check if the token is expired, if so log the user out
         if (tokenExpirationTime && tokenExpirationTime - currentTime <= 0) {
           console.log("TOKEN IS EXPIRED");
@@ -34,7 +33,7 @@ function auth_tokens_mw({ dispatch, getState }) {
           return dispatch({ type: "GOOGLE_LOGOUT" });
         }
         // check if the token is going to expire in less than 30mins - refresh it
-        if (tokenExpirationTime && tokenExpirationTime - currentTime <= 1800) {
+        if (tokenExpirationTime && tokenExpirationTime - currentTime <= 335) {
           var searchParams = new URLSearchParams();
           searchParams.set("grant_type", "refresh_token");
           searchParams.set("client_id", django_client_id);
