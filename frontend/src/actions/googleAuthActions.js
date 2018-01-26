@@ -15,6 +15,9 @@ const isAuthenticating = () => ({
 
 function convertGoogTokenSuccess(json) {
   localStorage.setItem("goog_access_token_conv", json.access_token);
+  localStorage.setItem("goog_refresh_token_conv", json.refresh_token);
+  let expiryDate = Math.round(new Date().getTime() / 1000) + json.expires_in;
+  localStorage.setItem("goog_access_token_expires_in", expiryDate);
   return {
     type: "CONVERT_GOOG_TOKEN_SUCCESS",
     goog_token: json
@@ -24,6 +27,8 @@ function convertGoogTokenSuccess(json) {
 function googleLogoutAction() {
   return function(dispatch) {
     localStorage.removeItem("goog_access_token_conv");
+    localStorage.removeItem("goog_refresh_token_conv");
+    localStorage.removeItem("goog_access_token_expires_in");
     dispatch({ type: "GOOGLE_LOGOUT" });
     return Promise.resolve();
   };
